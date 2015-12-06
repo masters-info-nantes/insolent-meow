@@ -2,22 +2,22 @@ package org.alma.csa.insolentmeow.connector;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.alma.csa.insolentmeow.component.AbstractConfiguration;
+import org.alma.csa.insolentmeow.IContext;
 import org.alma.csa.insolentmeow.interfaces.connexions.role.*;
 
 public abstract class AbstractConnector {
-	private AbstractConfiguration context;
+	private IContext context;
 	private List<FromRole> fromRoles;
 	private List<ToRole> toRoles;
 	
-	public AbstractConnector(AbstractConfiguration context) {
+	public AbstractConnector(IContext context) {
 		super();
 		this.context = context;
 		this.fromRoles = new ArrayList<FromRole>();
 		this.toRoles = new ArrayList<ToRole>();
 	}
 	
-	public AbstractConfiguration getContext() {
+	public IContext getContext() {
 		return this.context;
 	}
 	

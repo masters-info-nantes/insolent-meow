@@ -2,6 +2,7 @@ package org.alma.csa.insolentmeow.component;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.alma.csa.insolentmeow.IContext;
 import org.alma.csa.insolentmeow.interfaces.service.*;
 import org.alma.csa.insolentmeow.interfaces.connexions.port.*;
 
@@ -10,7 +11,7 @@ public class Component extends AbstractComponent {
 	private List<ProvidedService> providedServices;
 	private List<RequiredService> requiredServices;
 	
-	public Component(AbstractConfiguration context) {
+	public Component(IContext context) {
 		super(context);
 	}
 	

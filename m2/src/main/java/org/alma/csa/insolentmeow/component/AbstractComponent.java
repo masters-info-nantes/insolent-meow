@@ -2,16 +2,17 @@ package org.alma.csa.insolentmeow.component;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.alma.csa.insolentmeow.IContext;
 import org.alma.csa.insolentmeow.interfaces.service.*;
 import org.alma.csa.insolentmeow.interfaces.connexions.port.*;
 
 public abstract class AbstractComponent {
 	
-	private AbstractConfiguration context;  
+	private IContext context;  
 	private List<ProvidedPort> providedPorts;
 	private List<RequiredPort> requiredPorts;
 	
-	public AbstractComponent(AbstractConfiguration context) {
+	public AbstractComponent(IContext context) {
 		super();
 		this.context = context;
 		this.providedPorts = new ArrayList<ProvidedPort>();
@@ -21,7 +22,7 @@ public abstract class AbstractComponent {
 	public abstract List<ProvidedService> getProvidedServices();
 	public abstract List<RequiredService> getRequiredServices();
 	
-	public AbstractConfiguration getContext() {
+	public IContext getContext() {
 		return this.context;
 	}
 	
