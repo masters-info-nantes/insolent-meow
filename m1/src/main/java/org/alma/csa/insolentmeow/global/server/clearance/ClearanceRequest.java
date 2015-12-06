@@ -17,12 +17,12 @@ public class ClearanceRequest extends SimpleConnector {
     public ClearanceRequest(IContext context){
         super(context);
         crFromConnexionMgr = new CrFromConnexionMgr();
-        this.getContext().attach(crFromConnexionMgr,"crFromConnexionMgr");
+        this.getContext().attach(crFromConnexionMgr,"securityCheckOutPort");
         crToConnexionMgr = new CrToConnexionMgr();
-        this.getContext().attach(crToConnexionMgr,"crToConnexionMgr");
+        this.getContext().attach(crToConnexionMgr,"securityCheckInPort");
         crFromSecurityMgr = new CrFromSecurityMgr();
-        this.getContext().attach(crFromSecurityMgr,"crFromSecurityMgr");
+        this.getContext().attach(crFromSecurityMgr,"securityAuthOutPort");
         crToSecurityMgr = new CrToSecurityMgr();
-        this.getContext().attach(crToSecurityMgr,"crToSecurityMgr");
+        this.getContext().attach(crToSecurityMgr,"securityAuthInPort");
     }
 }

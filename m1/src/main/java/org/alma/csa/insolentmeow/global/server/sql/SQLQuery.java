@@ -17,12 +17,12 @@ public class SQLQuery extends SimpleConnector {
     public SQLQuery(IContext context){
         super(context);
         sqlFromConnexionMgr = new SqlFromConnexionMgr();
-        this.getContext().attach(sqlFromConnexionMgr,"sqlFromConnexionMgr");
+        this.getContext().attach(sqlFromConnexionMgr,"DBQueryOutPort");
         sqlToConnexionMgr = new SqlToConnexionMgr();
-        this.getContext().attach(sqlToConnexionMgr,"sqlToConnexionMgr");
+        this.getContext().attach(sqlToConnexionMgr,"DBQueryInPort");
         sqlFromDatabase = new SqlFromDatabase();
-        this.getContext().attach(sqlFromDatabase,"sqlFromDatabase");
+        this.getContext().attach(sqlFromDatabase,"QueryDatabaseOutPort");
         sqlToDatabase = new SqlToDatabase();
-        this.getContext().attach(sqlToDatabase,"sqlToDatabase");
+        this.getContext().attach(sqlToDatabase,"QueryDatabaseInPort");
     }
 }

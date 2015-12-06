@@ -17,12 +17,12 @@ public class SecurityQuery extends SimpleConnector {
     public SecurityQuery(IContext context){
         super(context);
         sqFromSecurityMgr = new SqFromSecurityMgr();
-        this.getContext().attach(sqFromSecurityMgr,"sqFromSecurityMgr");
+        this.getContext().attach(sqFromSecurityMgr,"QueryCheckOutPort");
         sqToSecurityMgr = new SqToSecurityMgr();
-        this.getContext().attach(sqToSecurityMgr,"sqToSecurityMgr");
+        this.getContext().attach(sqToSecurityMgr,"QueryCheckInPort");
         sqToDatabase = new SqToDatabase();
-        this.getContext().attach(sqToDatabase,"sqToDatabase");
+        this.getContext().attach(sqToDatabase,"SecurityManagementInPort");
         sqFromDatabase = new SqFromDatabase();
-        this.getContext().attach(sqFromDatabase,"sqFromDatabase");
+        this.getContext().attach(sqFromDatabase,"SecurityManagementOutPort");
     }
 }

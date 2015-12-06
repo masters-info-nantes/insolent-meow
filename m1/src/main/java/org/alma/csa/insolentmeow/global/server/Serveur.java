@@ -40,7 +40,7 @@ public class Serveur extends Configuration {
         this.getContext().declare(externalReceivedRequestResponsePort,"RequestResponse");
         externalReceivedRequestService = new ExternalReceivedRequestService();
         externalReceivedRequestResponseService = new ExternalReceivedRequestResponseService();
-        this.bind(externalReceivedRequestPort,"Request");
-        this.bind(externalReceivedRequestResponsePort,"RequestResponse");
+        this.bind(externalReceivedRequestPort,"receiveRequestPort");
+        this.bind(externalReceivedRequestResponsePort,"receivedRequestResponsePort");
     }
 }

@@ -17,12 +17,12 @@ public class RPC extends SimpleConnector {
     public RPC(IContext context){
         super(context);
         fromClient = new FromClient();
-        this.getContext().attach(fromClient,"fromClient");
+        this.getContext().attach(fromClient,"sendRequestPort");
         toClient = new ToClient();
-        this.getContext().attach(toClient,"toClient");
+        this.getContext().attach(toClient,"sendRequestResponsePort");
         fromServer = new FromServer();
-        this.getContext().attach(fromServer,"fromServer");
+        this.getContext().attach(fromServer,"request");
         toServer = new ToServer();
-        this.getContext().attach(toServer,"toServer");
+        this.getContext().attach(toServer,"requestResponse");
     }
 }
