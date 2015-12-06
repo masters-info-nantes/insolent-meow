@@ -20,6 +20,7 @@ public class ClientServer extends Configuration {
         serveur = new Serveur(this);
         rpc = new RPC(this);
         clientLogOutput = new ClientLogOutput();
-        this.getContext().declare(clientLogOutput,"ClientLogOutput");
+        this.getContext().declare(clientLogOutput,"LogOutput");
+        this.bind(clientLogOutput,"LogOutput");
     }
 }

@@ -2,7 +2,7 @@ package org.alma.csa.insolentmeow.global.client;
 
 import org.alma.csa.insolentmeow.IContext;
 import org.alma.csa.insolentmeow.component.Component;
-import org.alma.csa.insolentmeow.global.LogOutput;
+import org.alma.csa.insolentmeow.global.client.port.LogOutput;
 import org.alma.csa.insolentmeow.global.client.port.SendRequestPort;
 import org.alma.csa.insolentmeow.global.client.port.SendRequestResponsePort;
 import org.alma.csa.insolentmeow.global.client.service.SendRequestResponseService;

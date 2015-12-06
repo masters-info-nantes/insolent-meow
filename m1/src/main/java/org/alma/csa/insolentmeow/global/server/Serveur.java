@@ -35,10 +35,12 @@ public class Serveur extends Configuration {
         sqlQuery = new SQLQuery(this);
         securityQuery = new SecurityQuery(this);
         externalReceivedRequestPort = new ExternalReceivedRequestPort();
-        this.getContext().declare(externalReceivedRequestPort,"ExternalReceivedRequestPort");
+        this.getContext().declare(externalReceivedRequestPort,"Request");
         externalReceivedRequestResponsePort = new ExternalReceivedRequestResponsePort();
-        this.getContext().declare(externalReceivedRequestResponsePort,"ExternalReceivedRequestResponsePort");
+        this.getContext().declare(externalReceivedRequestResponsePort,"RequestResponse");
         externalReceivedRequestService = new ExternalReceivedRequestService();
         externalReceivedRequestResponseService = new ExternalReceivedRequestResponseService();
+        this.bind(externalReceivedRequestPort,"Request");
+        this.bind(externalReceivedRequestResponsePort,"RequestResponse");
     }
 }
