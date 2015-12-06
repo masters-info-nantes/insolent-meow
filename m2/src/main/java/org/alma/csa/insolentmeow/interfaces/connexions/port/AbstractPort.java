@@ -1,17 +1,34 @@
 package org.alma.csa.insolentmeow.interfaces.connexions.port;
 
-import org.alma.csa.insolentmeow.component.AbstractConfiguration;
-import org.alma.csa.insolentmeow.interfaces.connexions.IConnexionPoint;
+import java.util.ArrayList;
+import java.util.List;
+import org.alma.csa.insolentmeow.component.AbstractComponent;
+import org.alma.csa.insolentmeow.interfaces.connexions.AbstractConnexionPoint;
+import org.alma.csa.insolentmeow.interfaces.service.*;
 
-public abstract class AbstractPort extends Observable implements IConnexionPoint {
+public abstract class AbstractPort extends AbstractConnexionPoint {
 	
-	private AbstractConfiguration context;
+	private AbstractComponent parent;
+	private List<AbstractService> services;
 	
-	public AbstractConfiguration getContext() {
-		return this.context;
+	public AbstractPort() {
+		super();
+		this.services = new ArrayList<AbstractService>();
 	}
 	
-	public void setContext(AbstractConfiguration context) {
-		this.context = context;
+	public AbstractComponent getParent() {
+		return this.parent;
+	}
+	
+	public void setParent(AbstractComponent parent) {
+		this.parent = parent;
+	}
+	
+	public void addService(AbstractService service) {
+		this.services.add(service);
+	}
+	
+	public List<AbstractService> getServices() {
+		return this.services;
 	}
 }

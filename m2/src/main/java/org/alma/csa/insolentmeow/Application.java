@@ -7,6 +7,10 @@ import org.alma.csa.insolentmeow.interfaces.connexions.port.*;
 
 public class Application extends AbstractConfiguration {
 	
+	public Application() {
+		super();
+	}
+	
 	public List<ProvidedService> getProvidedServices() {
 		// TODO stub
 		return null;

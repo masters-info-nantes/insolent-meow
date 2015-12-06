@@ -1,18 +1,16 @@
 package org.alma.csa.insolentmeow.component.binding;
 
+import java.util.Observable;
 import org.alma.csa.insolentmeow.interfaces.connexions.port.*;
 
 public class ProvidedBinding extends AbstractBinding {
 	
-	public ProvidedBinding(ProvidedPort from, ProvidedConfigPort to) {
-		super(from,to);
+	public ProvidedBinding() {
+		super();
 	}
 	
-	public ProvidedPort getFrom() {
-		return (ProvidedPort)super.getFrom();
-	}
-	
-	public ProvidedConfigPort getTo() {
-		return (ProvidedConfigPort)super.getTo();
+	public void update(Observable o, Object arg) {
+		this.setChanged();
+		this.notifyObservers(arg);
 	}
 }

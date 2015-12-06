@@ -21,6 +21,10 @@ public abstract class AbstractComponent {
 	public abstract List<ProvidedService> getProvidedServices();
 	public abstract List<RequiredService> getRequiredServices();
 	
+	public AbstractConfiguration getContext() {
+		return this.context;
+	}
+	
 	public List<ProvidedPort> getProvidedPorts() {
 		return this.providedPorts;
 	}
@@ -31,11 +35,11 @@ public abstract class AbstractComponent {
 	
 	public void addProvidedPorts(ProvidedPort providedPort) {
 		this.providedPorts.add(providedPort);
-		providedPort.setContext(this.context);
+		providedPort.setParent(this);
 	}
 	
 	public void addRequiredPorts(RequiredPort requiredPort) {
 		this.requiredPorts.add(requiredPort);
-		requiredPort.setContext(this.context);
+		requiredPort.setParent(this);
 	}
 }

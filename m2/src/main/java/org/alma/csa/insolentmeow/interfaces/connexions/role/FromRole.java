@@ -1,8 +1,16 @@
 package org.alma.csa.insolentmeow.interfaces.connexions.role;
 
+import java.util.Observable;
+import java.util.Observer;
+
 public class FromRole extends AbstractRole {
 	
-	public void receive(Object signal) {
-		// TODO send to connector
+	public FromRole() {
+		super();
+	}
+	
+	public void update(Observable o, Object arg) {
+		this.setChanged();
+		this.notifyObservers(arg);
 	}
 }

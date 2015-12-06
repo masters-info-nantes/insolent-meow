@@ -1,17 +1,24 @@
 package org.alma.csa.insolentmeow.interfaces.connexions.role;
 
-import org.alma.csa.insolentmeow.component.AbstractConfiguration;
-import org.alma.csa.insolentmeow.interfaces.connexions.IConnexionPoint;
+import java.util.Observable;
+import java.util.Observer;
+import org.alma.csa.insolentmeow.connector.AbstractConnector;
+import org.alma.csa.insolentmeow.interfaces.connexions.AbstractConnexionPoint;
 
-public abstract class AbstractRole implements IConnexionPoint {
+public abstract class AbstractRole extends AbstractConnexionPoint implements Observer {
 	
-	private AbstractConfiguration context;
+	private AbstractConnector parent;
 	
-	public AbstractConfiguration getContext() {
-		return this.context;
+	public AbstractRole() {
+		super();
 	}
 	
-	public void setContext(AbstractConfiguration context) {
-		this.context = context;
+	public AbstractConnector getParent() {
+		return this.parent;
 	}
+	
+	public void setParent(AbstractConnector parent) {
+		this.parent = parent;
+	}
+	
 }

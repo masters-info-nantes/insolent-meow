@@ -1,15 +1,14 @@
-package org.alma.csa.insolentmeow.component.binding;
+package org.alma.csa.insolentmeow.connector.mapping;
 
 import java.util.Observable;
 import java.util.Observer;
 import org.alma.csa.insolentmeow.component.AbstractComponent;
-import org.alma.csa.insolentmeow.interfaces.connexions.port.AbstractPort;
+import org.alma.csa.insolentmeow.interfaces.connexions.AbstractConnexionPoint;
 
-public abstract class AbstractBinding extends Observable implements Observer {
-	
+public abstract class AbstractMapping extends Observable implements Observer {
 	private AbstractComponent parent;
 	
-	public AbstractBinding() {
+	public AbstractMapping() {
 		super();
 	}
 	
@@ -20,5 +19,4 @@ public abstract class AbstractBinding extends Observable implements Observer {
 	public void setParent(AbstractComponent parent) {
 		this.parent = parent;
 	}
-	
 }
