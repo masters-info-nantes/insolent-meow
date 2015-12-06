@@ -10,15 +10,15 @@ import org.alma.csa.insolentmeow.global.server.Serveur;
 public class ClientServer extends Configuration {
 
     Client client;
-    RPC rpc;
     Serveur serveur;
+    RPC rpc;
     ClientLogOutput clientLogOutput;
 
     public ClientServer(IContext context){
         super(context);
         client = new Client(this);
-        rpc = new RPC(this);
         serveur = new Serveur(this);
+        rpc = new RPC(this);
         clientLogOutput = new ClientLogOutput();
         this.getContext().declare(clientLogOutput,"ClientLogOutput");
     }
