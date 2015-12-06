@@ -5,7 +5,7 @@ import org.alma.csa.insolentmeow.connector.SimpleConnector;
 
 public class RPC extends SimpleConnector {
 
-    public RPC(AbstractConfiguration context) {
+    public RPC(AbstractConfiguration context){
         super(context);
     }
 }

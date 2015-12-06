@@ -2,8 +2,9 @@ package org.alma.csa.insolentmeow.global.server.clearance.connexion;
 
 import org.alma.csa.insolentmeow.interfaces.connexions.role.ToRole;
 
-/**
- * Created by woohyunnie on 06/12/15.
- */
 public class CrToConnexionMgr extends ToRole {
+
+    public CrToConnexionMgr(){
+        super();
+    }
 }

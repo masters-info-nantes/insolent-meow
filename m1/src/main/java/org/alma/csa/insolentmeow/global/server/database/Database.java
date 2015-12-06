@@ -5,7 +5,7 @@ import org.alma.csa.insolentmeow.component.Component;
 
 public class Database extends Component {
 
-    public Database(AbstractConfiguration context) {
+    public Database(AbstractConfiguration context){
         super(context);
     }
 }

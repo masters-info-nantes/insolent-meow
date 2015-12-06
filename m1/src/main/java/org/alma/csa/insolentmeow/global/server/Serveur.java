@@ -5,6 +5,6 @@ import org.alma.csa.insolentmeow.component.Configuration;
 public class Serveur extends Configuration{
 
     public Serveur(){
-
+        super();
     }
 }

@@ -2,10 +2,12 @@ package org.alma.csa.insolentmeow.global.server.connexionManager.database.servic
 
 import org.alma.csa.insolentmeow.interfaces.service.ProvidedService;
 
-/**
- * Created by woohyunnie on 06/12/15.
- */
 public class DBQueryOut extends ProvidedService {
+
+    public DBQueryOut(){
+        super();
+    }
+    
     @Override
     public void performAction(Object arg) {
 

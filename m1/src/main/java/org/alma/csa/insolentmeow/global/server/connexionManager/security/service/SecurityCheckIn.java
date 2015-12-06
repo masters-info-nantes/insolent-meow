@@ -2,10 +2,12 @@ package org.alma.csa.insolentmeow.global.server.connexionManager.security.servic
 
 import org.alma.csa.insolentmeow.interfaces.service.RequiredService;
 
-/**
- * Created by woohyunnie on 06/12/15.
- */
 public class SecurityCheckIn extends RequiredService {
+
+    public SecurityCheckIn(){
+        super();
+    }
+
     @Override
     public void performAction(Object arg) {
 
