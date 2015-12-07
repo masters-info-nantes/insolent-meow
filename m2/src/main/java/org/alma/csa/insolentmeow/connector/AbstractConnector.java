@@ -38,4 +38,9 @@ public abstract class AbstractConnector {
 		this.fromRoles.add(fromRole);
 		fromRole.setParent(this);
 	}
+	
+	public abstract void map(FromRole role, String serviceName);
+	public abstract void unmap(FromRole role, String serviceName);
+	public abstract void map(ToRole role, String serviceName);
+	public abstract void unmap(ToRole role, String serviceName);
 }
