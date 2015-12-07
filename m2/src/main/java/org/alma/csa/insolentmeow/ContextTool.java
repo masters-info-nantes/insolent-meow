@@ -41,6 +41,7 @@ public class ContextTool implements IContext {
 			this.requiredPorts.put(serviceName,list);
 		}
 		list.add(port);
+		System.out.println("declare RequiredPort("+serviceName+")");
 	}
 
 	public void undeclare(RequiredPort port, String serviceName) {
@@ -58,6 +59,7 @@ public class ContextTool implements IContext {
 			this.providedPorts.put(serviceName,list);
 		}
 		list.add(port);
+		System.out.println("declare ProvidedPort("+serviceName+")");
 	}
 
 	public void undeclare(ProvidedPort port, String serviceName) {
@@ -70,12 +72,15 @@ public class ContextTool implements IContext {
 	public void attach(FromRole role, String serviceName) {
 		AbstractAttachement attachement = this.attachements.get(serviceName);
 		if(attachement == null) {
+			System.out.println("attach(FromRole("+serviceName+")) attachement == null");
 			attachement = new FromAttachement();
 			this.attachements.put(serviceName,attachement);
 			List<ProvidedPort> ports = this.providedPorts.get(serviceName);
 			if(ports != null) {
+				System.out.println("attach(FromRole("+serviceName+")) ports != null");
 				for(ProvidedPort p : ports) {
 					p.addObserver(attachement);
+					System.out.println("attach ProvidedPort("+serviceName+") => attachement");
 				}
 			}
 		}
@@ -86,6 +91,7 @@ public class ContextTool implements IContext {
 		}
 		list.add(role);
 		attachement.addObserver(role);
+		System.out.println("attach attachement => FromRole("+serviceName+")");
 	}
 
 	public void unattach(FromRole role, String serviceName) {
@@ -108,6 +114,7 @@ public class ContextTool implements IContext {
 			if(ports != null) {
 				for(RequiredPort p : ports) {
 					attachement.addObserver(p);
+					System.out.println("attach RequiredPort("+serviceName+") => attachement");
 				}
 			}
 		}
@@ -118,6 +125,7 @@ public class ContextTool implements IContext {
 		}
 		list.add(role);
 		role.addObserver(attachement);
+		System.out.println("attach attachement => ToRole("+serviceName+")");
 	}
 
 	public void unattach(ToRole role, String serviceName) {

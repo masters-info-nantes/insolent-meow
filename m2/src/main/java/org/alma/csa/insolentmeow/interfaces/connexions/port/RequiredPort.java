@@ -9,11 +9,12 @@ import org.alma.csa.insolentmeow.interfaces.service.*;
 
 public class RequiredPort extends AbstractPort implements Observer {
 	
-	public RequiredPort() {
-		super();
+	public RequiredPort(String portName) {
+		super(portName);
 	}
 	
 	public void update(Observable o, Object arg) {
+		System.out.println(this.getClass().getName()+".update");
 		for(AbstractService s : this.getServices()) {
 			s.performAction(arg);
 		}

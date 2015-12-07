@@ -5,6 +5,6 @@ import org.alma.csa.insolentmeow.interfaces.connexions.port.RequiredPort;
 public class ReceivedRequestPort extends RequiredPort {
 
     public ReceivedRequestPort(){
-        super();
+        super("receivedRequest");
     }
 }

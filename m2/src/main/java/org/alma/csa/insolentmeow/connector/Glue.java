@@ -10,6 +10,7 @@ public class Glue extends Observable implements Observer {
 	}
 	
 	public void update(Observable o, Object arg) {
+		System.out.println(this.getClass().getName()+".update");
 		this.setChanged();
 		this.notifyObservers(arg);
 	}

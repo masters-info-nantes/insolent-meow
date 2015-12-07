@@ -5,6 +5,6 @@ import org.alma.csa.insolentmeow.interfaces.connexions.port.RequiredPort;
 public class QueryDatabaseInPort extends RequiredPort {
 
     public QueryDatabaseInPort(){
-        super();
+        super("queryDatabaseIn");
     }
 }

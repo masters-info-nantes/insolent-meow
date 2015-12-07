@@ -5,6 +5,6 @@ import org.alma.csa.insolentmeow.interfaces.connexions.port.ProvidedPort;
 public class DBQueryOutPort extends ProvidedPort {
 
     public DBQueryOutPort(){
-        super();
+        super("dbQueryOut");
     }
 }

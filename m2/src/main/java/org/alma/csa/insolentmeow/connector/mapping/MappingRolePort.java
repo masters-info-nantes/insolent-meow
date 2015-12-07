@@ -13,6 +13,7 @@ public class MappingRolePort extends AbstractMapping {
 	}
 	
 	public void update(Observable o, Object arg) {
+		System.out.println(this.getClass().getName()+".update");
 		this.setChanged();
 		this.notifyObservers(arg);
 	}

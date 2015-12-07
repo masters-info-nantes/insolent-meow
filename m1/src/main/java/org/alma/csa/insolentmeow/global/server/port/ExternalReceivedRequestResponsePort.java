@@ -5,6 +5,6 @@ import org.alma.csa.insolentmeow.interfaces.connexions.port.ProvidedConfigPort;
 public class ExternalReceivedRequestResponsePort extends ProvidedConfigPort {
 
     public ExternalReceivedRequestResponsePort(){
-        super();
+        super("externalReceivedRequestResponse");
     }
 }

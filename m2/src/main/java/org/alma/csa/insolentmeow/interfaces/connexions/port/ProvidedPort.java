@@ -9,11 +9,12 @@ import org.alma.csa.insolentmeow.interfaces.service.*;
 
 public class ProvidedPort extends AbstractPort {
 
-	public ProvidedPort() {
-		super();
+	public ProvidedPort(String portName) {
+		super(portName);
 	}
-	
+
 	public void diffuse(Object obj) {
+		System.out.println(this.getClass().getName()+".diffuse");
 		this.setChanged();
 		this.notifyObservers(obj);
 	}

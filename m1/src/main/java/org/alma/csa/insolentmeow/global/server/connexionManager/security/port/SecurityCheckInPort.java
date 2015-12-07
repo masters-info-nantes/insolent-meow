@@ -5,6 +5,6 @@ import org.alma.csa.insolentmeow.interfaces.connexions.port.RequiredPort;
 public class SecurityCheckInPort extends RequiredPort {
 
     public SecurityCheckInPort(){
-        super();
+        super("securityCheckIn");
     }
 }

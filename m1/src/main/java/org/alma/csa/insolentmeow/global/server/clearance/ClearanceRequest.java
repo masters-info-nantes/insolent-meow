@@ -25,9 +25,9 @@ public class ClearanceRequest extends SimpleConnector {
         this.getContext().attach(crFromSecurityMgr,"securityAuthOutPort");
         crToSecurityMgr = new CrToSecurityMgr();
         this.getContext().attach(crToSecurityMgr,"securityAuthInPort");
-        this.map(crFromConnexionMgr,"FromConnexionToSecurity");
-        this.map(crToConnexionMgr,"FromConnexionToSecurity");
-        this.map(crFromSecurityMgr,"FromSecurityToConnexion");
-        this.map(crToSecurityMgr,"FromSecurityToConnexion");
+        this.map(crFromConnexionMgr,"fromConnexionToSecurity");
+        this.map(crToSecurityMgr,"fromConnexionToSecurity");
+        this.map(crFromSecurityMgr,"fromSecurityToConnexion");
+        this.map(crToConnexionMgr,"fromSecurityToConnexion");
     }
 }

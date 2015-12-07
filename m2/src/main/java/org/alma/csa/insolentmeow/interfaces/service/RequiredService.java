@@ -6,8 +6,8 @@ import org.alma.csa.insolentmeow.interfaces.connexions.port.*;
 
 public abstract class RequiredService extends AbstractService {
 	
-	public RequiredService() {
-		super();
+	public RequiredService(String serviceName) {
+		super(serviceName);
 	}
 	
 	public void addPort(RequiredPort port) {

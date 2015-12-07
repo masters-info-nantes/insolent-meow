@@ -13,6 +13,8 @@ public class Component extends AbstractComponent {
 	
 	public Component(IContext context) {
 		super(context);
+		this.providedServices = new ArrayList<ProvidedService>();
+		this.requiredServices = new ArrayList<RequiredService>();
 	}
 	
 	public List<ProvidedService> getProvidedServices() {

@@ -1,12 +1,12 @@
-package org.alma.csa.insolentmeow.global.server.database.query.service;
+package org.alma.csa.insolentmeow.global.client.service;
 
 import org.alma.csa.insolentmeow.interfaces.connexions.port.ProvidedPort;
 import org.alma.csa.insolentmeow.interfaces.service.ProvidedService;
 
-public class QueryDatabaseOutService extends ProvidedService{
+public class LogOutputService extends ProvidedService{
 
-    public QueryDatabaseOutService(){
-        super("queryDatabaseOut");
+    public LogOutputService(){
+        super("logOutput");
     }
 
     @Override

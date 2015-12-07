@@ -18,16 +18,16 @@ public class SQLQuery extends SimpleConnector {
     public SQLQuery(IContext context){
         super(context);
         sqlFromConnexionMgr = new SqlFromConnexionMgr();
-        this.getContext().attach(sqlFromConnexionMgr,"DBQueryOutPort");
+        this.getContext().attach(sqlFromConnexionMgr,"dbQueryOutPort");
         sqlToConnexionMgr = new SqlToConnexionMgr();
-        this.getContext().attach(sqlToConnexionMgr,"DBQueryInPort");
+        this.getContext().attach(sqlToConnexionMgr,"dbQueryInPort");
         sqlFromDatabase = new SqlFromDatabase();
-        this.getContext().attach(sqlFromDatabase,"QueryDatabaseOutPort");
+        this.getContext().attach(sqlFromDatabase,"queryDatabaseOutPort");
         sqlToDatabase = new SqlToDatabase();
-        this.getContext().attach(sqlToDatabase,"QueryDatabaseInPort");
-        this.map(sqlFromConnexionMgr,"FromConnexionToDatabase");
-        this.map(sqlToDatabase,"FromConnexionToDatabase");
-        this.map(sqlFromDatabase,"FromDatabseToConnexion");
-        this.map(sqlToConnexionMgr,"FromDatabseToConnexion");
+        this.getContext().attach(sqlToDatabase,"queryDatabaseInPort");
+        this.map(sqlFromConnexionMgr,"fromConnexionToDatabase");
+        this.map(sqlToDatabase,"fromConnexionToDatabase");
+        this.map(sqlFromDatabase,"fromDatabseToConnexion");
+        this.map(sqlToConnexionMgr,"fromDatabseToConnexion");
     }
 }

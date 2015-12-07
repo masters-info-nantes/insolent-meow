@@ -10,10 +10,12 @@ public abstract class AbstractPort extends AbstractConnexionPoint {
 	
 	private AbstractComponent parent;
 	private List<AbstractService> services;
+	private String portName;
 	
-	public AbstractPort() {
+	public AbstractPort(String portName) {
 		super();
 		this.services = new ArrayList<AbstractService>();
+		this.portName = portName;
 	}
 	
 	public AbstractComponent getParent() {
@@ -27,7 +29,15 @@ public abstract class AbstractPort extends AbstractConnexionPoint {
 	public void addService(AbstractService service) {
 		this.services.add(service);
 	}
-	
+
+	public String getPortName() {
+		return portName;
+	}
+
+	public void setPortName(String portName) {
+		this.portName = portName;
+	}
+
 	public List<AbstractService> getServices() {
 		return this.services;
 	}

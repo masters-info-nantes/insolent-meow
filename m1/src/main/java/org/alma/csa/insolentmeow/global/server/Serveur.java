@@ -9,8 +9,6 @@ import org.alma.csa.insolentmeow.global.server.port.ExternalReceivedRequestPort;
 import org.alma.csa.insolentmeow.global.server.port.ExternalReceivedRequestResponsePort;
 import org.alma.csa.insolentmeow.global.server.securityManager.SecurityManager;
 import org.alma.csa.insolentmeow.global.server.securityQuery.SecurityQuery;
-import org.alma.csa.insolentmeow.global.server.service.ExternalReceivedRequestResponseService;
-import org.alma.csa.insolentmeow.global.server.service.ExternalReceivedRequestService;
 import org.alma.csa.insolentmeow.global.server.sql.SQLQuery;
 
 public class Serveur extends Configuration {
@@ -23,8 +21,6 @@ public class Serveur extends Configuration {
     SecurityQuery securityQuery;
     ExternalReceivedRequestPort externalReceivedRequestPort;
     ExternalReceivedRequestResponsePort externalReceivedRequestResponsePort;
-    ExternalReceivedRequestService externalReceivedRequestService;
-    ExternalReceivedRequestResponseService externalReceivedRequestResponseService;
 
     public Serveur(IContext context){
         super(context);
@@ -35,12 +31,14 @@ public class Serveur extends Configuration {
         sqlQuery = new SQLQuery(this);
         securityQuery = new SecurityQuery(this);
         externalReceivedRequestPort = new ExternalReceivedRequestPort();
-        this.getContext().declare(externalReceivedRequestPort,"Request");
+            addRequiredPorts(externalReceivedRequestPort);
+            externalReceivedRequestPort.setParent(this);
+            this.getContext().declare(externalReceivedRequestPort,"toServer");
         externalReceivedRequestResponsePort = new ExternalReceivedRequestResponsePort();
-        this.getContext().declare(externalReceivedRequestResponsePort,"RequestResponse");
-        externalReceivedRequestService = new ExternalReceivedRequestService();
-        externalReceivedRequestResponseService = new ExternalReceivedRequestResponseService();
-        this.bind(externalReceivedRequestPort,"receiveRequestPort");
+            addProvidedPorts(externalReceivedRequestResponsePort);
+            externalReceivedRequestResponsePort.setParent(this);
+            this.getContext().declare(externalReceivedRequestResponsePort,"fromServer");
+        this.bind(externalReceivedRequestPort,"receivedRequestPort");
         this.bind(externalReceivedRequestResponsePort,"receivedRequestResponsePort");
     }
 }

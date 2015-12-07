@@ -2,16 +2,18 @@ package org.alma.csa.insolentmeow.global.client;
 
 import org.alma.csa.insolentmeow.IContext;
 import org.alma.csa.insolentmeow.component.Component;
-import org.alma.csa.insolentmeow.global.client.port.LogOutput;
+import org.alma.csa.insolentmeow.global.client.port.LogOutputPort;
 import org.alma.csa.insolentmeow.global.client.port.SendRequestPort;
 import org.alma.csa.insolentmeow.global.client.port.SendRequestResponsePort;
+import org.alma.csa.insolentmeow.global.client.service.LogOutputService;
 import org.alma.csa.insolentmeow.global.client.service.SendRequestResponseService;
 import org.alma.csa.insolentmeow.global.client.service.SendRequestService;
 
 
 public class Client extends Component{
 
-    LogOutput logOutput;
+    LogOutputPort logOutputPort;
+    LogOutputService logOutputService;
     SendRequestPort sendRequestPort;
     SendRequestResponsePort sendRequestResponsePort;
     SendRequestService sendRequestService;
@@ -19,14 +21,29 @@ public class Client extends Component{
 
     public Client(IContext context){
         super(context);
-        logOutput = new LogOutput();
-        this.getContext().declare(logOutput,"LogOutput");
+        logOutputPort = new LogOutputPort();
+            addProvidedPorts(logOutputPort);
+            logOutputPort.setParent(this);
+            this.getContext().declare(logOutputPort,"logOutput");
+        logOutputService = new LogOutputService();
+            addProvidedServices(logOutputService);
+            logOutputService.setParent(this);
         sendRequestPort = new SendRequestPort();
-        this.getContext().declare(sendRequestPort,"SendRequestPort");
+            addProvidedPorts(sendRequestPort);
+            sendRequestPort.setParent(this);
+            this.getContext().declare(sendRequestPort,"sendRequestPort");
         sendRequestResponsePort = new SendRequestResponsePort();
-        this.getContext().declare(sendRequestResponsePort,"SendRequestResponsePort");
+            addRequiredPorts(sendRequestResponsePort);
+            sendRequestResponsePort.setParent(this);
+            this.getContext().declare(sendRequestResponsePort,"sendRequestResponsePort");
         sendRequestService = new SendRequestService();
+            sendRequestService.setParent(this);
+            addProvidedServices(sendRequestService);
         sendRequestResponseService = new SendRequestResponseService();
+            sendRequestResponseService.setParent(this);
+            addRequiredServices(sendRequestResponseService);
+        logOutputPort.addService(logOutputService);
+        logOutputService.addPort(logOutputPort);
         sendRequestPort.addService(sendRequestService);
         sendRequestService.addPort(sendRequestPort);
         sendRequestResponsePort.addService(sendRequestResponseService);

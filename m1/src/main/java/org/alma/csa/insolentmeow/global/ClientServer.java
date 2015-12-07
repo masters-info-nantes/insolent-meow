@@ -20,11 +20,13 @@ public class ClientServer extends Configuration {
         serveur = new Serveur(this);
         rpc = new RPC(this);
         clientLogOutput = new ClientLogOutput();
-        this.getContext().declare(clientLogOutput,"ClientLogOutput");
-        this.bind(clientLogOutput,"LogOutput");
+        clientLogOutput.setParent(this);
+        addProvidedPorts(clientLogOutput);
+        this.getContext().declare(clientLogOutput,"clientLogOutput");
+        this.bind(clientLogOutput,"logOutput");
     }
 
     public void run(){
-        getProvidedServices().get(0);
+        client.getProvidedServices().get(0).performAction("hello");
     }
 }

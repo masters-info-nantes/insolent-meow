@@ -5,6 +5,6 @@ import org.alma.csa.insolentmeow.interfaces.connexions.port.ProvidedPort;
 public class SecurityCheckOutPort extends ProvidedPort {
 
     public SecurityCheckOutPort(){
-        super();
+        super("securityCheckOut");
     }
 }
