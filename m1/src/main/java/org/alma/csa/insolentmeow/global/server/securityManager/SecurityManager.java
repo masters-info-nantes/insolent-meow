@@ -36,5 +36,14 @@ public class SecurityManager extends Component {
         this.getContext().declare(queryCheckOutPort,"queryCheckOutPort");
         queryCheckInService = new QueryCheckInService();
         queryCheckOutService = new QueryCheckOutService();
+        securityAuthInPort.addService(securityAuthInService);
+        securityAuthInService.addPort(securityAuthInPort);
+        securityAuthOutPort.addService(securityAuthOutService);
+        securityAuthOutService.addPort(securityAuthOutPort);
+        queryCheckInPort.addService(queryCheckInService);
+        queryCheckInService.addPort(queryCheckInPort);
+        queryCheckOutPort.addService(queryCheckOutService);
+        queryCheckOutService.addPort(queryCheckOutPort);
+
     }
 }

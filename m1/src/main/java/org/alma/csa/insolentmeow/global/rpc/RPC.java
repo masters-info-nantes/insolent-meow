@@ -1,6 +1,7 @@
 package org.alma.csa.insolentmeow.global.rpc;
 
 import org.alma.csa.insolentmeow.IContext;
+import org.alma.csa.insolentmeow.connector.Glue;
 import org.alma.csa.insolentmeow.connector.SimpleConnector;
 import org.alma.csa.insolentmeow.global.rpc.client.FromClient;
 import org.alma.csa.insolentmeow.global.rpc.client.ToClient;
@@ -15,7 +16,7 @@ public class RPC extends SimpleConnector {
     ToServer toServer;
 
     public RPC(IContext context){
-        super(context);
+        super(context, new Glue());
         fromClient = new FromClient();
         this.getContext().attach(fromClient,"sendRequestPort");
         toClient = new ToClient();

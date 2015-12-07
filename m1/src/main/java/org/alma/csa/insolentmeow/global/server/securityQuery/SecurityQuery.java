@@ -1,6 +1,7 @@
 package org.alma.csa.insolentmeow.global.server.securityQuery;
 
 import org.alma.csa.insolentmeow.IContext;
+import org.alma.csa.insolentmeow.connector.Glue;
 import org.alma.csa.insolentmeow.connector.SimpleConnector;
 import org.alma.csa.insolentmeow.global.server.securityQuery.database.SqFromDatabase;
 import org.alma.csa.insolentmeow.global.server.securityQuery.database.SqToDatabase;
@@ -15,7 +16,7 @@ public class SecurityQuery extends SimpleConnector {
     SqFromDatabase sqFromDatabase;
 
     public SecurityQuery(IContext context){
-        super(context);
+        super(context, new Glue());
         sqFromSecurityMgr = new SqFromSecurityMgr();
         this.getContext().attach(sqFromSecurityMgr,"QueryCheckOutPort");
         sqToSecurityMgr = new SqToSecurityMgr();

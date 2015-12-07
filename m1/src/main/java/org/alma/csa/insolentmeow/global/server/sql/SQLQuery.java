@@ -1,6 +1,7 @@
 package org.alma.csa.insolentmeow.global.server.sql;
 
 import org.alma.csa.insolentmeow.IContext;
+import org.alma.csa.insolentmeow.connector.Glue;
 import org.alma.csa.insolentmeow.connector.SimpleConnector;
 import org.alma.csa.insolentmeow.global.server.sql.connexion.SqlFromConnexionMgr;
 import org.alma.csa.insolentmeow.global.server.sql.connexion.SqlToConnexionMgr;
@@ -15,7 +16,7 @@ public class SQLQuery extends SimpleConnector {
     SqlToDatabase sqlToDatabase;
 
     public SQLQuery(IContext context){
-        super(context);
+        super(context, new Glue());
         sqlFromConnexionMgr = new SqlFromConnexionMgr();
         this.getContext().attach(sqlFromConnexionMgr,"DBQueryOutPort");
         sqlToConnexionMgr = new SqlToConnexionMgr();

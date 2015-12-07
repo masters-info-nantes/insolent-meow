@@ -1,6 +1,7 @@
 package org.alma.csa.insolentmeow.global.server.clearance;
 
 import org.alma.csa.insolentmeow.IContext;
+import org.alma.csa.insolentmeow.connector.Glue;
 import org.alma.csa.insolentmeow.connector.SimpleConnector;
 import org.alma.csa.insolentmeow.global.server.clearance.connexion.CrFromConnexionMgr;
 import org.alma.csa.insolentmeow.global.server.clearance.connexion.CrToConnexionMgr;
@@ -15,7 +16,7 @@ public class ClearanceRequest extends SimpleConnector {
     CrToSecurityMgr crToSecurityMgr;
 
     public ClearanceRequest(IContext context){
-        super(context);
+        super(context, new Glue());
         crFromConnexionMgr = new CrFromConnexionMgr();
         this.getContext().attach(crFromConnexionMgr,"securityCheckOutPort");
         crToConnexionMgr = new CrToConnexionMgr();

@@ -27,5 +27,9 @@ public class Client extends Component{
         this.getContext().declare(sendRequestResponsePort,"SendRequestResponsePort");
         sendRequestService = new SendRequestService();
         sendRequestResponseService = new SendRequestResponseService();
+        sendRequestPort.addService(sendRequestService);
+        sendRequestService.addPort(sendRequestPort);
+        sendRequestResponsePort.addService(sendRequestResponseService);
+        sendRequestResponseService.addPort(sendRequestResponsePort);
     }
 }

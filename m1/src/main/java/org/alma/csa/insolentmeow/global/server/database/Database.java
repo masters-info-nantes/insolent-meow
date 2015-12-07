@@ -36,5 +36,13 @@ public class Database extends Component {
         this.getContext().declare(queryDatabaseOutPort,"queryDatabaseOutPort");
         queryDatabaseInService = new QueryDatabaseInService();
         queryDatabaseOutService = new QueryDatabaseOutService();
+        securityManagementInPort.addService(securityManagementInService);
+        securityManagementInService.addPort(securityManagementInPort);
+        securityManagementOutPort.addService(securityManagementOutService);
+        securityManagementOutService.addPort(securityManagementOutPort);
+        queryDatabaseInPort.addService(queryDatabaseInService);
+        queryDatabaseInService.addPort(queryDatabaseInPort);
+        queryDatabaseOutPort.addService(queryDatabaseOutService);
+        queryDatabaseOutService.addPort(queryDatabaseOutPort);
     }
 }

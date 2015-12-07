@@ -50,5 +50,17 @@ public class ConnexionManager extends Component {
         this.getContext().declare(securityCheckInPort,"securityCheckInPort");
         securityCheckOutService = new SecurityCheckOutService();
         securityCheckInService = new SecurityCheckInService();
+        dbQueryInPort.addService(dbQueryInService);
+        dbQueryInService.addPort(dbQueryInPort);
+        dbQueryOutPort.addService(dbQueryOutService);
+        dbQueryOutService.addPort(dbQueryOutPort);
+        receivedRequestPort.addService(receivedRequestService);
+        receivedRequestService.addPort(receivedRequestPort);
+        receivedRequestResponsePort.addService(receivedRequestResponseService);
+        receivedRequestResponseService.addPort(receivedRequestResponsePort);
+        securityCheckInPort.addService(securityCheckInService);
+        securityCheckInService.addPort(securityCheckInPort);
+        securityCheckOutPort.addService(securityCheckOutService);
+        securityCheckOutService.addPort(securityCheckOutPort);
     }
 }
