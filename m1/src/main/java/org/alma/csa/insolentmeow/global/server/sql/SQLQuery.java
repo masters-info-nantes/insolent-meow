@@ -16,7 +16,7 @@ public class SQLQuery extends SimpleConnector {
     SqlToDatabase sqlToDatabase;
 
     public SQLQuery(IContext context){
-        super(context, new Glue());
+        super(context);
         sqlFromConnexionMgr = new SqlFromConnexionMgr();
         this.getContext().attach(sqlFromConnexionMgr,"DBQueryOutPort");
         sqlToConnexionMgr = new SqlToConnexionMgr();
@@ -25,5 +25,9 @@ public class SQLQuery extends SimpleConnector {
         this.getContext().attach(sqlFromDatabase,"QueryDatabaseOutPort");
         sqlToDatabase = new SqlToDatabase();
         this.getContext().attach(sqlToDatabase,"QueryDatabaseInPort");
+        this.map(sqlFromConnexionMgr,"FromConnexionToDatabase");
+        this.map(sqlToDatabase,"FromConnexionToDatabase");
+        this.map(sqlFromDatabase,"FromDatabseToConnexion");
+        this.map(sqlToConnexionMgr,"FromDatabseToConnexion");
     }
 }

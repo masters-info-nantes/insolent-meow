@@ -23,4 +23,8 @@ public class ClientServer extends Configuration {
         this.getContext().declare(clientLogOutput,"ClientLogOutput");
         this.bind(clientLogOutput,"LogOutput");
     }
+
+    public void run(){
+        getProvidedServices().get(0);
+    }
 }
